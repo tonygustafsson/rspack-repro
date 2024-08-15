@@ -1,3 +1,16 @@
+# Recreate issue
+
+1. Run `pnpm run dev:rspack`
+2. Watch http://localhost:8080, it will crash because `process` is not defined
+
+# Expected behavior
+
+Show "Hello, world catchmeifyoucan" on http://localhost:8080 since we are getting the environment variable `REACT_APP_TEST_ENV` and using `loadEnv` in `rsbuild.config.ts`.
+
+# Actual behavior
+
+Crashing javascript because `process.env.REACT_APP_TEST_ENV` is not replaced with the value, but using `process.env.NODE_ENV` in `render.js` works fine.
+
 # rspack-repro
 
 - [Rspack website](https://www.rspack.dev/)
